@@ -4,15 +4,11 @@ This is a proof of concept HTTP caching proxy for interactions between Amazon SD
 
 ## Usage
 
-First, populate the Nginx `server` configuration with the Amazon S3 bucket you're targeting:
+Populate the Nginx `server` configuration with the Amazon S3 bucket you're targeting as well as your Amazon Web Services (AWS) credentials:
 
 ```nginx
-chop_prefix /<BUCKET>;
-```
+proxy_pass http://<BUCKET>.s3.amazonaws.com;
 
-As well as your Amazon Web Services (AWS) credentials:
-
-```nginx
 aws_access_key <ACCESS_KEY>;
 aws_secret_key <SECRET_KEY>;
 s3_bucket <BUCKET>;
